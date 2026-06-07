@@ -18,3 +18,32 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::middleware(['auth'])->group(function () {
+
+    // Dashboard (role-aware)
+    Route::get('/dashboard', [DashboardControllerXYZ::class, 'index'])
+         ->name('dashboard');
+
+    // Courses (RESTful resource)
+    Route::resource('courses', CourseControllerXYZ::class);
+
+    // Enrolments (RESTful resource)
+    Route::resource('enrolments', EnrolmentControllerXYZ::class);
+
+    // Reports (admin + instructor)
+    Route::prefix('reports')->name('reports.')->group(function () {
+
+        // System-wide overview (admin only)
+        Route::get('/overview', [ReportControllerXYZ::class, 'overview'])
+             ->name('overview');
+
+        // Single student academic transcript
+        Route::get('/student/{student}', [ReportControllerXYZ::class, 'studentProgress'])
+             ->name('student');
+
+        // Course-level grade & enrolment report
+        Route::get('/course/{course}', [ReportControllerXYZ::class, 'courseReport'])
+             ->name('course');
+    });
+});
