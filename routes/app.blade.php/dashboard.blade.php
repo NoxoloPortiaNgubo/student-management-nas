@@ -62,7 +62,7 @@
         }
         .sidebar-nav .nav-link i { font-size: 1rem; width: 1.2rem; text-align: center; }
 
-        /* ── Top Bar ── */
+        /*  Top Bar */
         #topbar {
             position: fixed; top: 0; left: var(--sidebar-width);
             right: 0; height: var(--topbar-height);
@@ -72,7 +72,7 @@
         }
         #topbar .page-title { font-weight: 600; font-size: 1rem; color: #1e293b; }
 
-        /* ── Main Content ── */
+        /*  Main Content */
         #main-content {
             margin-left: var(--sidebar-width);
             padding-top: calc(var(--topbar-height) + 1.5rem);
@@ -80,20 +80,16 @@
         }
         .content-wrapper { padding: 0 1.5rem 2rem; }
 
-        /* ── Cards ── */
         .card { border: none; box-shadow: 0 1px 3px rgba(0,0,0,.08); border-radius: .75rem; }
         .stat-card { border-radius: .75rem; color: #fff; }
         .stat-card .stat-icon { font-size: 2.5rem; opacity: .25; }
         .stat-card .stat-number { font-size: 2rem; font-weight: 700; }
         .stat-card .stat-label  { font-size: .8rem; opacity: .85; }
 
-        /* ── Badge overrides ── */
         .badge { font-size: .72rem; }
 
-        /* ── Capacity bar ── */
         .capacity-bar { height: 6px; border-radius: 3px; }
 
-        /* ── Responsive ── */
         @media (max-width: 768px) {
             #sidebar { transform: translateX(-100%); }
             #sidebar.show { transform: translateX(0); }
@@ -109,7 +105,7 @@
 <nav id="sidebar">
     <div class="sidebar-brand">
         <i class="bi bi-mortarboard-fill me-2" style="color:var(--sidebar-accent)"></i>
-        Student<span>MS</span>
+        <span>MS</span>
     </div>
 
     <ul class="sidebar-nav nav flex-column mt-2">
@@ -119,7 +115,7 @@
         <li class="nav-item">
             <a href="{{ route('dashboard') }}"
                class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                <i class="bi bi-speedometer2"></i> Dashboard
+                <i class="bi bi-speedometer2"></i>
             </a>
         </li>
 
@@ -128,7 +124,7 @@
         <li class="nav-item">
             <a href="{{ route('courses.index') }}"
                class="nav-link {{ request()->routeIs('courses.*') ? 'active' : '' }}">
-                <i class="bi bi-book"></i> Courses
+                <i class="bi bi-book"></i>
             </a>
         </li>
 
@@ -150,7 +146,7 @@
             </a>
         </li>
 
-        {{-- Reports – admin/instructor only --}}
+        {{-- admin/instructor only --}}
         @unless(auth()->user()->isStudent())
         <div class="sidebar-section">Reports</div>
         <li class="nav-item">
@@ -167,12 +163,12 @@
         <li class="nav-item">
             <a href="{{ route('courses.create') }}"
                class="nav-link {{ request()->routeIs('courses.create') ? 'active' : '' }}">
-                <i class="bi bi-plus-circle"></i> Add Course
+                <i class="bi bi-plus-circle"></i>
             </a>
         </li>
         <li class="nav-item">
             <a href="#" class="nav-link">
-                <i class="bi bi-people"></i> Manage Users
+                <i class="bi bi-people"></i>
             </a>
         </li>
         @endif
@@ -200,7 +196,7 @@
     </div>
 </nav>
 
-{{-- ═══════════════ TOP BAR ════════════════ --}}
+{{-- TOP BAR --}}
 <header id="topbar">
     <button class="btn btn-sm btn-light d-md-none" id="sidebarToggle">
         <i class="bi bi-list fs-5"></i>
@@ -215,7 +211,6 @@
     </div>
 </header>
 
-{{--  MAIN  --}}
 <main id="main-content">
     <div class="content-wrapper">
 
