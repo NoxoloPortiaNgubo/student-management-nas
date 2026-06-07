@@ -1,58 +1,44 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Student Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A robust, enterprise-grade web application built with Laravel 12, MySQL, and Laravel Herd that manages student life cycles, course enrolments, and academic reporting. This project features a custom multi-role authentication gatekeeper to provide tailored workspaces for Administrators, Lecturers, and Students.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+##  The Development Team (Group Initials: NAS)
+* **Group Leader & QA:** Noxolo Portia — Multi-role authentication, middleware security gates, repository management.
+* **Backend Developer:** Alakhe — Database migration optimization, Report controllers, and layout views.
+* **Backend Developer:** Sesona — Student CRUD architecture and Service Layer business logic.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+##  Key Features
+* **Multi-Role Security Wall:** Custom route middleware guarding specific panels based on application user roles (admin, lecturer, student).
+* **Student CRUD Architecture:** A decoupled Service Layer pattern handling safe creation, editing, and storage of student records.
+* **Course & Enrolment Management:** Dynamic mapping of students to academic courses.
+* **Academic Reporting:** Specialized controller infrastructure to generate student grade and enrolment summaries.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+##  Technology Stack
+* **Framework:** Laravel 12 (PHP v8.x)
+* **Local Environment:** Laravel Herd / Laragon
+* **Database Service:** DBngin / MySQL 8.0 / SQLite
+* **Frontend Basics:** Blade Templates, HTML, CSS, JavaScript
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+##  Application User Guide
 
-## Agentic Development
+### 1. Authentication & Security Gatekeeper 
+* **Accessing the App:** Users are greeted by a central welcome gate to log into their specific workspace.
+* **Multi-Role Login:** Enter your registered credentials at the login interface. The custom security middleware will automatically detect your role (Admin, Lecturer, or Student) and route you to your dedicated dashboard panel.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 2. Student CRUD Management 
+* **Viewing Students:** Navigate to the student directory page to view a complete, organized table of all active student records.
+* **Adding Profiles:** Click the "Add Student" action button to open the input form. Fill in the required student details and submit to securely store the record.
+* **Updating Records:** Click the "Edit" option next to any student profile to modify their information dynamically.
+* **Removing Profiles:** Use the "Delete" action button to permanently purge outdated student profiles from the system database.
 
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3. Academic Reporting & Enrolments 
+* **Course Enrolments:** Users can access the enrolment module to dynamically map and assign students to their respective academic courses.
+* **Generating Reports:** Navigate to the reporting section to compile and view summarized overviews of student academic performance and enrollment metrics.
