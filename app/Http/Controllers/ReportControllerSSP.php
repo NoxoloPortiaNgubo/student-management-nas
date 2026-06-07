@@ -8,10 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-/**
- * ReportController generates aggregate progress reports.
- */
-class ReportController extends Controller
+// ReportController generates aggregate progress reports.
+class ReportControllerSSP extends ControllerSSP
 {
     public function __construct()
     {
@@ -27,9 +25,8 @@ class ReportController extends Controller
 
     // Student Progress Report 
 
-    /**
-     * Show a single student's full academic transcript.
-     */
+    //Show a single student's full academic transcript.
+    
     public function studentProgress(User $student): View
     {
         abort_if(! $student->isStudent(), 404);
@@ -55,9 +52,8 @@ class ReportController extends Controller
 
     // Course Enrolment Report 
 
-    /**
-     * Statistics for a single course: grade distribution, pass rate, top performers.
-     */
+    //Statistics for a single course: grade distribution, pass rate, top performers.
+    
     public function courseReport(Course $course): View
     {
         // Only the assigned instructor or admin can view this report

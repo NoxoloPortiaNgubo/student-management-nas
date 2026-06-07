@@ -8,7 +8,7 @@ use App\Http\Requests\UpdateStudentRequestSSP;
 use App\Services\StudentServiceSSP;
 
 
-class StudentControllerSSP extends Controller
+class StudentControllerSSP extends ControllerSSP
 {
     
     public function __construct(
