@@ -10,18 +10,16 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
-/**
- * EnrolmentController manages student enrolment requests and instructor approvals.
- */
-class EnrolmentControllerXYZ extends Controller
+/*EnrolmentController manages student enrolment requests and instructor approvals.*/
+class EnrolmentControllerSSP extends ControllerSSP
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * List enrolments – filtered by role:
+    /*
+     * List enrolments : filtered by role:
      * Admin    : all enrolments
      * Instructor: enrolments on their courses
      * Student  : their own enrolments

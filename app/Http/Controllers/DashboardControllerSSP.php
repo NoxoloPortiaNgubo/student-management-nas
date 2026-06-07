@@ -11,7 +11,7 @@ use Illuminate\View\View;
 /**
  * DashboardController routes authenticated users to their role-specific dashboard.
  */
-class DashboardControllerXYZ extends Controller
+class DashboardControllerSSP extends ControllerSSP
 {
     public function __construct()
     {
@@ -29,7 +29,7 @@ class DashboardControllerXYZ extends Controller
         };
     }
 
-    // ─── Admin Dashboard ──────────────────────────────────────────────────────
+    // Admin Dashboard 
 
     private function adminDashboard(): View
     {
@@ -62,7 +62,7 @@ class DashboardControllerXYZ extends Controller
         ));
     }
 
-    // ─── Instructor Dashboard ─────────────────────────────────────────────────
+    // Instructor Dashboard
 
     private function instructorDashboard(User $user): View
     {
@@ -90,7 +90,7 @@ class DashboardControllerXYZ extends Controller
         return view('dashboards.instructor', compact('courses', 'pendingEnrolments', 'stats'));
     }
 
-    // ─── Student Dashboard ────────────────────────────────────────────────────
+    // Student Dashboard
 
     private function studentDashboard(User $user): View
     {

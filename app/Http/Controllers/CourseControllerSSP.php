@@ -12,18 +12,18 @@ use Illuminate\View\View;
 /**
  * CourseController handles CRUD for the Course resource.
  */
-class CourseControllerXYZ extends Controller
+class CourseControllerSSP extends ControllerSSP
 {
     public function __construct()
     {
         $this->middleware('auth');
-        $this->authorizeResource(Course::class, 'course');
+        $this->authorizeResource(CourseSSP::class, 'course');
     }
 
     /** Display paginated list of courses with enrolment counts. */
     public function index(): View
     {
-        $courses = Course::with('instructor')
+        $courses = CourseSSP::with('instructor')
             ->withCount([
                 'enrolments',
                 'enrolments as approved_enrolments_count' => fn ($q) => $q->where('status', 'approved'),
@@ -50,7 +50,7 @@ class CourseControllerXYZ extends Controller
     /** Persist a new course. */
     public function store(StoreCourseRequest $request): RedirectResponse
     {
-        Course::create($request->validated());
+        CourseSSP::create($request->validated());
 
         return redirect()->route('courses.index')
                          ->with('success', 'Course created successfully.');
