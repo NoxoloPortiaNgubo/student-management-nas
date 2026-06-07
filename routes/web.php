@@ -19,10 +19,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-
-// ... (keep your existing routes above)
 
 // 1. STANDARD SHARED DASHBOARD (Fallback)
 Route::get('/dashboard', function () {
