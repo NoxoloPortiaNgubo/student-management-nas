@@ -2,63 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\StudentSSP;
+use App\Http\Requests\StoreStudentRequestSSP;
+use App\Http\Requests\UpdateStudentRequestSSP;
+use App\Services\StudentServiceSSP;
+
 
 class StudentControllerSSP extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
+    public function __construct(
+        protected StudentServiceSSP $studentService
+    ) {}
+
     public function index()
     {
-        //
-    }
+        $students = $this->studentService->getAllStudents();
+        return view('students.index', compact('students'));
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    } 
+
     public function create()
     {
-        //
+       
+        return view('students.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreStudentRequestSSP $request)
     {
-        //
+        $this->studentService->createStudent($request->validated());
+        return redirect()->route('students.index')->with('success', 'Student added successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(StudentSSP $student)
     {
-        //
+        return view('students.edit', compact('student'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(UpdateStudentRequestSSP $request, StudentSSP $student)
     {
-        //
+        $this->studentService->updateStudent($student, $request->validated());
+        return redirect()->route('students.index')->with('success', 'Student record updated.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(StudentSSP $student)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $this->studentService->deleteStudent($student);
+        return redirect()->route('students.index')->with('success', 'Student deleted.');
     }
 }
